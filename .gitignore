@@ -1,0 +1,28 @@
+# Build files
+build/
+*.o
+*.so
+*.a
+
+# SST builds
+sst-core/
+sst-elements/
+
+# Python
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Virtual machine images
+*.qcow2
+*.img
+
+# Temporary files
+tmp/
+temp/
+
+# OS junk
+.DS_Store
+Thumbs.db
