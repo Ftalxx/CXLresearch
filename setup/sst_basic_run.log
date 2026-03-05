@@ -1,0 +1,81 @@
+ArielComponent[arielcpu.cc:37:ArielCPU] Creating Ariel component...
+ArielComponent[arielcpu.cc:43:ArielCPU] Configuring for 2 cores...
+ArielComponent[arielcpu.cc:46:ArielCPU] Configuring for check addresses = no
+ArielComponent[arielcpu.cc:120:ArielCPU] Loaded memory manager: cpu:memmgr
+ArielComponent[arielcpu.cc:134:ArielCPU] Memory manager construction is completed.
+Pin3Frontend[arielfrontendcommon.cc:137:parseCommonSubComponentParams] Model specifies that there are 0 application arguments
+Pin3Frontend[frontend/pin3/pin3frontend.cc:448:parsePin3Params] Interception and instrumentation of multi-level memory and malloc/free calls is DISABLED.
+Pin3Frontend[frontend/pin3/pin3frontend.cc:456:parsePin3Params] Tracking the stack and dumping on malloc calls is DISABLED.
+Pin3Frontend[frontend/pin3/pin3frontend.cc:461:parsePin3Params] Malloc map file is DISABLED
+Pin3Frontend[frontend/pin3/pin3frontend.cc:57:Pin3Frontend] Completed processing application arguments.
+Pin3Frontend[frontend/pin3/pin3frontend.cc:64:Pin3Frontend] Base pipe name: /tmp/sst_shmem_1064-0-1804289383
+Pin3Frontend[frontend/pin3/pin3frontend.cc:74:Pin3Frontend] Completed initialization of the Ariel CPU.
+ArielComponent[arielcpu.cc:159:ArielCPU] Registering ArielCPU clock at 2GHz
+ArielComponent[arielcpu.cc:163:ArielCPU] Clocks registered.
+ArielComponent[arielcpu.cc:165:ArielCPU] Creating core to cache links...
+ArielComponent[arielcpu.cc:167:ArielCPU] Creating processor cores and cache links...
+ArielComponent[arielcpu.cc:169:ArielCPU] Configuring cores and cache links...
+ArielComponent[arielcpu.cc:209:ArielCPU] Completed initialization of the Ariel RTL Link.
+ArielComponent[arielcpu.cc:209:ArielCPU] Completed initialization of the Ariel RTL Link.
+ArielComponent[arielcpu.cc:219:ArielCPU] Completed initialization of the Ariel CPU.
+Initialized with 2 cores
+Before initialization 
+Assigning the PTW correctly
+mmu:pagefaulthandler register handler
+Assigning the PTW correctly
+mmu:pagefaulthandler register handler
+After initialization 
+opalNumber of Shared Memory Pools: 1
+Pool start: 134217728 size: 2097152 frame size: 4 mem tech: 0
+opalConfiguring Shared mempool0
+Pool start: 0 size: 131072 frame size: 4 mem tech: 0
+clock: 2GHz
+l2cache_0: No MSHR lookup latency provided (mshr_latency_cycles)...intrapolated to 2 cycles.
+l2cache_1: No MSHR lookup latency provided (mshr_latency_cycles)...intrapolated to 2 cycles.
+l3cache: No MSHR lookup latency provided (mshr_latency_cycles)...intrapolated to 3 cycles.
+local_memory, WARNING: Loaded backend in legacy mode (from parameter set). Instead, load backend into this controller's 'backend' slot via ctrl.setSubComponent() in configuration.
+0:TimingDRAM::TimingDRAM():54:mc=0: number of channels: 2
+0:TimingDRAM::TimingDRAM():55:mc=0: address mapper:     memHierarchy.roundRobinAddrMapper
+0:TimingDRAM:Channel:Channel():113:mc=0:chan=0: max pending trans: 32
+0:TimingDRAM:Channel:Channel():114:mc=0:chan=0: number of ranks:   2
+0:TimingDRAM:Rank:Rank():223:mc=0:chan=0:rank=0: number of banks: 16
+0:TimingDRAM:Bank:Bank():291:mc=0:chan=0:rank=0:bank=0: CL:           14
+0:TimingDRAM:Bank:Bank():292:mc=0:chan=0:rank=0:bank=0: CL_WR:        12
+0:TimingDRAM:Bank:Bank():293:mc=0:chan=0:rank=0:bank=0: RCD:          14
+0:TimingDRAM:Bank:Bank():294:mc=0:chan=0:rank=0:bank=0: TRP:          14
+0:TimingDRAM:Bank:Bank():295:mc=0:chan=0:rank=0:bank=0: dataCycles:   2
+0:TimingDRAM:Bank:Bank():296:mc=0:chan=0:rank=0:bank=0: transactionQ: memHierarchy.fifoTransactionQ
+0:TimingDRAM:Bank:Bank():297:mc=0:chan=0:rank=0:bank=0: pagePolicy:   memHierarchy.simplePagePolicy
+dc, DEPRECATION WARNING: getting region parameters (addr_range_start/end, interleave_step/size) from link subcomponent. In SST 16 this will not be supported and region parameters should be declared in the directory's parameters instead.
+ExtMemDc, DEPRECATION WARNING: getting region parameters (addr_range_start/end, interleave_step/size) from link subcomponent. In SST 16 this will not be supported and region parameters should be declared in the directory's parameters instead.
+The value of tRCD is 300
+After initialization 
+SSTARIEL: Loading Ariel Tool to connect to SST on pipe: /tmp/sst_shmem_1064-0-1804289383 max core count: 2
+SSTARIEL: Function profiling is disabled.
+ARIEL-SST: Did not find ARIEL_OVERRIDE_POOL in the environment, no override applies.
+ARIEL-SST PIN tool activating with 2 threads
+ARIEL: Default memory pool set to 0
+ARIEL: Tool is configured to suspend profiling until program control
+ARIEL: Starting program.
+Identified routine: ariel_enable, replacing with Ariel equivalent...
+Replacement complete.
+Identified routine: clock_gettime, replacing with Ariel equivalent...
+Replacement complete.
+Identified routine: clock_gettime, replacing with Ariel equivalent...
+Replacement complete.
+ARIEL: Enabling memory and instruction tracing from program control at simulated Ariel cycle 5198085.
+Pin3Frontend[arielfrontendcommon.cc:65:init] Launching...
+Pin3Frontend[frontend/pin3/pin3frontend.cc:120:forkChildProcess] Executing PIN command: /home/ftvee/tools/pin-external-3.31-98869-gfa6f126a8-gcc-linux/pin -follow_execv -t /home/ftvee/sst/libexec/fesimple.so -w 0 -E 1 -p /tmp/sst_shmem_1064-0-1804289383 -v 1 -t 0 -c 2 -s 0 -m 0 -k 0 -d 0 -- app/opal_test
+Pin3Frontend[arielfrontendcommon.cc:71:init] Waiting for child to attach.
+Pin3Frontend[arielfrontendcommon.cc:73:init] Child has attached!
+ArielComponent[arielcpu.cc:237:finish] Ariel Processor Information:
+ArielComponent[arielcpu.cc:238:finish] Completed at: 2690734 nanoseconds.
+ArielComponent[arielcpu.cc:239:finish] Ariel Component Statistics (By Core)
+
+Ariel Memory Management Statistics:
+---------------------------------------------------------------------
+Page Table Sizes:
+- Map entries         19
+Page Table Coverages:
+- Bytes               77824
+Simulation is complete, simulated time: 2.69073 ms
