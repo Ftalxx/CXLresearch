@@ -11,6 +11,17 @@ Because real CXL hardware is unavailable, the system is simulated using:
 - Custom CXL switch model implemented in SST
 - Emulated CXL Type-3 memory latency
 
+## Current Progress
+
+SST simulator installed and validated
+Ariel test configuration executed successfully
+QEMU virtualization environment configured
+Ubuntu VM host template created
+SSH and networking infrastructure working
+
+Next Step:
+Multi-host VM environment for simulated CXL memory sharing experiments.
+
 ## Architecture
 
 Host VMs -> CXL Switch -> Shared CXL Memory
