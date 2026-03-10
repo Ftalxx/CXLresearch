@@ -14,6 +14,7 @@ __pycache__/
 
 # Logs
 *.log
+!setup/*.log
 
 # Virtual machine images
 *.qcow2
