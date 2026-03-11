@@ -14,6 +14,7 @@ __pycache__/
 
 # Logs
 *.log
+!setup/*.log
 !setup/sst_basic_run.log
 
 # Virtual machine images
