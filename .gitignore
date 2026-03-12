@@ -16,6 +16,7 @@ __pycache__/
 *.log
 !setup/*.log
 !setup/sst_basic_run.log
+!setup/qemu/qemu_environment.log
 
 # Virtual machine images
 *.qcow2

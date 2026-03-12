@@ -1,40 +1,62 @@
-\# SST Setup and Validation
+# SST Setup and Validation
 
+## Installed Components
 
+The following SST components were installed for the simulation environment:
 
-\## Installed Components
+* **SST-core**
+* **SST-elements**
 
-\- SST-core
+---
 
-\- SST-elements
+## Installation Location
 
+SST was installed locally in the research environment used by this repository.
 
+The installation was performed inside the working research directory rather than a system-wide installation to keep the environment reproducible.
 
-\## Installation Location
+---
 
-Installed in the local research environment used for this repository.
+## Validation Test
 
+The SST installation was validated using the OPAL basic test configuration.
 
+Example command:
 
-\## Validation Command
+```
+sst src/sst/elements/opal/tests/basic_1node_1smp.py
+```
 
-Run the OPAL validation test:
+This confirms that SST-core and SST-elements were built correctly and that the simulator can execute a basic architecture model.
 
-sst src/sst/elements/opal/tests/basic\_1node\_1smp.py
+---
 
+## Validation Script
 
+A helper script is provided in the repository to run the validation test:
 
-\## Related Files
+```
+scripts/sst/validate_sst_opal.sh
+```
 
+This script runs the OPAL validation configuration and can be used to quickly verify that the SST environment is functioning.
 
+---
 
-Installation notes  
+## Related Files
 
-\- setup/sst\_setup.md
+### Installation Notes
 
+```
+setup/sst_setup.md
+```
 
+Contains the full installation procedure used to build SST-core and SST-elements.
 
-Validation log  
+### Validation Log
 
-\- setup/sst\_basic\_run.log
+```
+setup/sst_basic_run.log
+```
 
+Log captured during the initial validation run of the OPAL test.

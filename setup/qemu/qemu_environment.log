@@ -1,0 +1,148 @@
+[QEMU VERSION]
+ftvee@ft-vee:~/research/qemu$ ./build/qemu-system-x86_64 --version
+QEMU emulator version 9.0.50 (v9.0.0-645-gb563959b90)
+Copyright (c) 2003-2024 Fabrice Bellard and the QEMU Project developers
+
+--------------------------------------------------
+
+[ACCELERATOR SUPPORT]
+ftvee@ft-vee:~/research/qemu$ ./build/qemu-system-x86_64 -accel help
+Accelerators supported in QEMU binary:
+tcg
+kvm
+
+--------------------------------------------------
+
+[DISPLAY BACKENDS]
+ftvee@ft-vee:~/research/qemu$ ./build/qemu-system-x86_64 -display help
+Available display backend types:
+none
+gtk
+egl-headless
+dbus
+
+--------------------------------------------------
+
+[HOST NETWORK INTERFACES]
+ftvee@ft-vee:~/research/qemu$ ip a
+
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    inet 127.0.0.1/8 scope host lo
+    inet 10.255.255.254/32 scope global lo
+
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500
+    inet 172.17.38.125/20 brd 172.17.47.255 scope global eth0
+
+3: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500
+    inet 192.168.199.1/24 scope global br0
+
+4: tap-cxl1: <BROADCAST,MULTICAST,UP,LOWER_UP> master br0
+
+5: tap-cxl2: <BROADCAST,MULTICAST,UP,LOWER_UP> master br0
+
+6: tap-cxl3: <BROADCAST,MULTICAST,UP,LOWER_UP> master br0
+
+--------------------------------------------------
+
+[BRIDGE INTERFACE]
+ftvee@ft-vee:~/research/qemu$ ip addr show br0
+
+3: br0: <BROADCAST,MULTICAST,UP,LOWER_UP>
+    inet 192.168.199.1/24 scope global br0
+
+--------------------------------------------------
+
+[TAP DEVICES]
+ftvee@ft-vee:~/research/qemu$ ip tuntap show
+tap-cxl1: tap one_queue vnet_hdr persist user 1000
+tap-cxl2: tap one_queue vnet_hdr persist user 1000
+tap-cxl3: tap one_queue vnet_hdr persist user 1000
+
+--------------------------------------------------
+
+[BRIDGE MEMBERS]
+ftvee@ft-vee:~/research/qemu$ bridge link
+
+tap-cxl1 master br0
+tap-cxl2 master br0
+tap-cxl3 master br0
+
+--------------------------------------------------
+
+[HOST ROUTING TABLE]
+ftvee@ft-vee:~/research/qemu$ ip route
+
+default via 172.17.32.1 dev eth0
+172.17.32.0/20 dev eth0
+192.168.199.0/24 dev br0
+
+--------------------------------------------------
+
+[RUNNING QEMU INSTANCES]
+ftvee@ft-vee:~/research/qemu$ ps aux | grep qemu
+
+VM1
+/home/ftvee/research/qemu/build/qemu-system-x86_64
+-drive file=/home/ftvee/research/qemu/host1.qcow2
+-netdev tap,id=net0,ifname=tap-cxl1
+-mac=52:54:00:01:00:01
+
+VM2
+/home/ftvee/research/qemu/build/qemu-system-x86_64
+-drive file=/home/ftvee/research/qemu/host2.qcow2
+-netdev tap,id=net0,ifname=tap-cxl2
+-mac=52:54:00:01:00:02
+
+VM3
+/home/ftvee/research/qemu/build/qemu-system-x86_64
+-drive file=/home/ftvee/research/qemu/host3.qcow2
+-netdev tap,id=net0,ifname=tap-cxl3
+-mac=52:54:00:01:00:03
+
+--------------------------------------------------
+
+[GUEST VM INFORMATION]
+
+---- OS ----
+Ubuntu 22.04.5 LTS (Jammy Jellyfish)
+
+---- HOSTNAME ----
+host3
+
+---- MACHINE ID ----
+77da8848e1cb414dbc17706a67cfcee2
+
+--------------------------------------------------
+
+[GUEST NETWORK]
+ip a
+
+Interface: enp0s2
+MAC: 52:54:00:01:00:03
+IP: 192.168.199.4/24
+
+--------------------------------------------------
+
+[GUEST ROUTES]
+ip route
+
+default via 192.168.199.1
+192.168.199.0/24 dev enp0s2
+
+--------------------------------------------------
+
+[GUEST CPU]
+lscpu
+
+Architecture: x86_64
+CPU(s): 8
+Hypervisor vendor: KVM
+Virtualization type: full
+
+--------------------------------------------------
+
+[GUEST MEMORY]
+free -h
+
+Mem: 23 GiB total
+Swap: 0 B
