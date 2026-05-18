@@ -1,43 +1,92 @@
 # CXL Memory Sharing Simulation for LLM Workloads
 
-This project explores memory disaggregation using Compute Express Link (CXL) in simulated environments.
+This project explores memory disaggregation using Compute Express Link (CXL) in a simulated environment.
 
-The goal is to analyze memory latency and performance when LLM inference workloads access shared CXL Type-3 memory.
+The goal is to study how memory latency and overall system performance change when large workloads access shared CXL Type-3 memory instead of local DRAM.
 
-Because real CXL hardware is unavailable, the system is simulated using:
+Because real CXL hardware is not available, the system is implemented through simulation using:
 
-- QEMU virtual machines as hosts
-- SST Simulator for architecture modeling
-- Custom CXL switch model implemented in SST
+- QEMU virtual machines as host systems  
+- SST (Structural Simulation Toolkit) for architecture modeling  
+- A custom CXL switch model implemented in SST  
 - Emulated CXL Type-3 memory latency
 
-## Current Progress
+---
 
-SST simulator installed and validated
-Ariel test configuration executed successfully
-QEMU virtualization environment configured
-Ubuntu VM host template created
-SSH and networking infrastructure working
+# Current Progress
 
-Next Step:
-Multi-host VM environment for simulated CXL memory sharing experiments.
+- SST simulator installed and validated  
+- Ariel test configuration executed successfully  
+- QEMU virtualization environment configured  
+- Ubuntu VM host template created  
+- Bridge/TAP networking implemented for VM communication  
+- Host ↔ VM networking verified using static addressing  
 
-## Architecture
+---
 
-Host VMs -> CXL Switch -> Shared CXL Memory
+# Next Step
 
-Multiple hosts share memory through a simulated CXL fabric manager.
+Build a multi-host VM environment so several simulated hosts can access shared memory through the modeled CXL fabric.
 
-## Research Goals
+This will allow experiments measuring the effect of shared memory access on workload latency.
 
-1. Simulate CXL memory sharing across hosts
-2. Measure latency compared to local memory
-3. Analyze performance impact on LLM inference
-4. Evaluate scalability of shared memory pools
+---
 
-## Technologies
+# Architecture
 
-- SST Simulator
-- QEMU
-- CXL Type-3 memory modeling
-- Python simulation scripts
+```
+Host VMs → CXL Switch → Shared CXL Memory
+```
+
+Multiple simulated hosts connect through a CXL switch that manages access to a shared memory pool.  
+The switch and memory behavior are modeled inside SST.
+
+---
+
+# Research Goals
+
+- Simulate CXL memory sharing across multiple hosts  
+- Measure latency compared to local DRAM access  
+- Analyze the performance impact on LLM inference workloads  
+- Evaluate scalability of shared memory pools  
+
+---
+
+# Technologies
+
+- SST Simulator  
+- QEMU  
+- CXL Type-3 memory modeling  
+- Python simulation scripts  
+
+---
+
+# Repository Structure
+
+This repository is organized to separate environment setup, simulation work, and collected results.
+
+- `setup/`  
+  Setup notes, validation steps, and environment configuration for SST and QEMU.
+
+- `setup/qemu/`  
+  Documentation and scripts for the QEMU VM simulation environment.
+
+- `setup/sst/`  
+  SST installation notes, configuration steps, and validation results.
+
+- `docs/`  
+  General documentation and supporting notes for the project.
+
+- `experiments/`  
+  Experiment definitions and workload configurations used during testing.
+
+- `results/`  
+  Output logs and collected performance measurements.
+
+- `scripts/`  
+  Utility scripts used to automate environment setup, launching simulations, or processing results.
+
+- `qemu/`  
+  QEMU-related runtime files or VM resources used during simulation.
+
+This structure is intended to keep the simulation environment reproducible while separating setup work from experiment execution.
